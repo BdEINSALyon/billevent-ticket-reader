@@ -1,3 +1,6 @@
+# billevent-ticket-reader
+Frontend pour le lecteur de billet
+
 # BilleventTicketReader
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.1.
