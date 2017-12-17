@@ -4,7 +4,7 @@
     Welcome to billevent-reader !
   </h1>
 </div>
-<form class="card" (submit)="onClick()">
+<form class="card" action="javascript:void(0);" (submit)="onClick()">
   <input [(ngModel)]="id" placeholder="id" [ngModelOptions]="{standalone: true}">
   <input type="submit" hidefocus="true" name="Envoyer le code barre">
 </form>
@@ -23,4 +23,8 @@
 <div *ngIf="errors">
   <h3 class="text-danger">Erreur !</h3>
   <span>{{errors}}</span>
+</div>
+<div *ngIf="info">
+  <h3 class="text-info">Infos !</h3>
+  <span>{{info}}</span>
 </div>
