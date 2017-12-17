@@ -4,9 +4,23 @@
     Welcome to billevent-reader !
   </h1>
 </div>
-<form (submit)="onClick()">
+<form class="card" (submit)="onClick()">
   <input [(ngModel)]="id" placeholder="id" [ngModelOptions]="{standalone: true}">
-  <input type="submit" hidefocus="true">
+  <input type="submit" hidefocus="true" name="Envoyer le code barre">
 </form>
-<div>{{results}}</div>
+<div class="card" *ngIf="billet">
+  <div class="card-body">
+    <span class="card-title">Billet n°{{billet.id}}</span>
+    <div class="card-text">
+      <span class="cardtext-info">Participants</span>
+      <ul>
+        <li *ngFor="let participant of billet.participants">{{participant.last_name | uppercase}}  {{participant.first_name}} </li>
+      </ul>
+    </div>
 
+  </div>
+</div>
+<div *ngIf="errors">
+  <h3 class="text-danger">Erreur !</h3>
+  <span>{{errors}}</span>
+</div>

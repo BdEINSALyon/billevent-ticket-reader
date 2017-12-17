@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {FormsModule} from "@angular/forms";
-import {Billet} from "../billet";
+
+import {catchError} from "rxjs/operators";
+import {Observable} from "rxjs/Observable";
 
 @Component({
   selector: 'app-root',
@@ -10,8 +11,8 @@ import {Billet} from "../billet";
 })
 export class AppComponent {
   id = 'app';
-  results: string;
-  fileid = 1;
+  errors: string;
+  billet: Object;
 
 
   constructor(private http:HttpClient) {}
@@ -22,14 +23,21 @@ export class AppComponent {
   }
 
   onClick(){
-
     this.http.post('http://localhost:8000/api/billetcheck/',{id: this.id}).subscribe(data => {
       // Read the result field from the JSON 1:qKlPOxcujQ_KVs60Thy3DAt1X2s
 
       if(data != null){
-        this.results = JSON.stringify(data);
+        this.billet = data;
+        this.id = "";
+        this.errors =null;
       }
-        this.results+= "Slutttt";
-    });
+    },
+    err => {
+      this.errors = "Le billet n'est pas reconnu !";
+      this.id = "";
+    }
+  );
+
   }
+
 }
