@@ -3,20 +3,27 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
-import {FormsModule} from "@angular/forms";
-import {HttpClientModule} from "@angular/common/http";
+import {FormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
+import {TicketValidatorService} from './ticket-validator.service';
+import { ParametresComponent } from './parametres/parametres.component';
+import { AppRoutingModule } from './app-routing.module';
+import { MainComponent } from './main/main.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ParametresComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule
   ],
-  providers: [],
+  providers: [TicketValidatorService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
