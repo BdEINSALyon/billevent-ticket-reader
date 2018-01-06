@@ -1,0 +1,22 @@
+<div class="container">
+  <h2 class="card-title">Paramètres</h2>
+
+  <div>
+    <h3>Numéro de file</h3>
+    <input (change)="fileChange($event)" [(ngModel)]="file"    type="number">
+    <p>Permet de modifier le numéro de la file de validation de ticket. <br> Attention avant de modifier !</p>
+  </div>
+  <div>
+    <h2>Authentification</h2>
+    <label class="">Nom d'utilisateur</label><input [(ngModel)]="username">
+    <label>Mot de passe </label><input type="password" [(ngModel)]="password">
+  </div>
+  <br>
+  <button (click)="submit()" class="btn btn-danger">Sauvegarder</button><br>
+  <a href="../" class="btn">Retourner au scan des billets</a>
+  <br>
+  <div class="container" *ngIf="errors">
+    <span class="text-danger">Erreur !</span>
+    <span>{{errors}}</span>
+  </div>
+</div>

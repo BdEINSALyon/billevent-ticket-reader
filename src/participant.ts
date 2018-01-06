@@ -1,6 +1,6 @@
-export class Participant{
+export class Participant {
   constructor(participant: Participant) {
-    this.id =participant.id;
+    this.id = participant.id;
     this.first_name = participant.first_name;
     this.last_name = participant.last_name;
   }
@@ -9,7 +9,7 @@ export class Participant{
   first_name: string;
   last_name: string;
 
-  toString(): string{
-    return this.id + ": " + this.last_name;
+  toString(): string {
+    return this.id + ': ' + this.last_name;
   }
 }

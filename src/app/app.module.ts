@@ -9,6 +9,7 @@ import {TicketValidatorService} from './ticket-validator.service';
 import { ParametresComponent } from './parametres/parametres.component';
 import { AppRoutingModule } from './app-routing.module';
 import { MainComponent } from './main/main.component';
+import {AuthService} from './auth.service';
 
 
 @NgModule({
@@ -23,7 +24,7 @@ import { MainComponent } from './main/main.component';
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [TicketValidatorService],
+  providers: [TicketValidatorService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

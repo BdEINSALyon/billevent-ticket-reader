@@ -1,0 +1,29 @@
+<form class="container" action="javascript:void(0);" (submit)="onClick()">
+  <input [(ngModel)]="id" placeholder="id" [ngModelOptions]="{standalone: true}">
+  <input type="submit" hidefocus="true" name="Envoyer le code barre">
+</form>
+<br>
+<div class="container card" *ngIf="billet">
+  <div class="card-body">
+    <span class="card-title">Billet n°{{billet.id}}</span>
+    <div class="card-text">
+      <span class="cardtext-info">Participants</span>
+      <ul>
+        <li *ngFor="let participant of billet.participants">{{participant.last_name | uppercase}}  {{participant.first_name}} </li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+<div class="container border-danger" *ngIf="errors">
+  <h3 class="text-danger">Erreur !</h3>
+  <span>{{errors}}</span>
+</div>
+<div *ngIf="info">
+  <h3 class="text-info">Infos !</h3>
+  <span>{{info}}</span>
+</div>
+<div class="container">
+  <a href="./params" class="btn">Paramètres de l'application</a>
+</div>
+
